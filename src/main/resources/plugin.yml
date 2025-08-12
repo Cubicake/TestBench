@@ -1,0 +1,9 @@
+name: TestBench
+version: '1.0-SNAPSHOT'
+main: games.cubi.testBench.TestBench
+api-version: '1.21'
+prefix: TestBench
+load: STARTUP
+authors: [ _Cubicake ]
+description: Test bench
+website: https://cubi.games
