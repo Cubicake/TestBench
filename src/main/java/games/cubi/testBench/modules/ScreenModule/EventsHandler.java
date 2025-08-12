@@ -1,4 +1,4 @@
-package games.cubi.testBench;
+package games.cubi.testBench.modules.ScreenModule;
 
 import com.destroystokyo.paper.event.player.PlayerStopSpectatingEntityEvent;
 import net.kyori.adventure.text.minimessage.MiniMessage;
@@ -23,7 +23,7 @@ public class EventsHandler implements Listener {
     }
     @EventHandler(priority = EventPriority.LOWEST)
     public void inputEvent(PlayerInputEvent event) {
-        Bukkit.broadcast(MiniMessage.miniMessage().deserialize("Input! "+event.getInput()));
+        //Bukkit.broadcast(MiniMessage.miniMessage().deserialize("Input! "+event.getInput()));
         if (event.getInput().isLeft()) {
             Player player = event.getPlayer();
             player.getPersistentDataContainer().set(new NamespacedKey("test","lmbdown"), PersistentDataType.BOOLEAN, true);

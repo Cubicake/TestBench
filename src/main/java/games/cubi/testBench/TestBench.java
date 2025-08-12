@@ -1,25 +1,21 @@
 package games.cubi.testBench;
 
-import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
-import net.kyori.adventure.text.minimessage.MiniMessage;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
+import games.cubi.testBench.modules.Modules;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.Collection;
-
 public final class TestBench extends JavaPlugin {
-
+    private static TestBench testBench;
     @Override
     public void onEnable() {
-        // Plugin startup logic
-        this.getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, event -> event.registrar().register("testbench", new Commands(this)));
-
-        getServer().getPluginManager().registerEvents(new EventsHandler(), this);
+        testBench = this;
+        Modules.enableModules();
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        Modules.disableModules();
+    }
+    public static TestBench get() {
+        return testBench;
     }
 }

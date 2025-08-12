@@ -1,5 +1,7 @@
-package games.cubi.testBench;
+package games.cubi.testBench.modules.ScreenModule;
 
+import games.cubi.testBench.TestBench;
+import games.cubi.testBench.modules.Modules;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.*;
@@ -14,11 +16,9 @@ import org.bukkit.util.Transformation;
 import org.joml.Vector3f;
 
 public class Screen {
-    TestBench plugin;
-    private NamespacedKey key;
+    private final NamespacedKey key;
 
-    public Screen(TestBench plugin, Player player) {
-        this.plugin = plugin;
+    public Screen(Player player) {
         preparePlayer(player);
         key = new NamespacedKey("test","lmbdowm");
     }
@@ -94,7 +94,7 @@ public class Screen {
                     }
                 }
             }
-        }.runTaskTimer(plugin, 0L, 1L).getTaskId();
+        }.runTaskTimer(TestBench.get(), 0L, 1L).getTaskId();
     }
 
     private void preparePlayer(Player player) {
